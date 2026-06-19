@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRE® Quantitative Comparison - Advanced | SKILLIGENT HANDS TUTORS</title>
+    <style>
+        :root {
+            --primary: #1a2744;
+            --secondary: #c8a951;
+            --accent: #2c4a7c;
+            --bg: #f5f3ee;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --danger: #c0392b;
+            --success: #1e7a3e;
+            --warning: #e67e22;
+            --whatsapp: #25D366;
+            --whatsapp-hover: #1da851;
+            --border: #d5d0c8;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --transition: 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .app-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .app-header .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .app-header .brand .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+        .app-header .brand .brand-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        .app-header .brand .brand-name small {
+            display: block;
+            font-weight: 400;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+        .app-header .exam-badge {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 20px 40px;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 32px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .card h3 {
+            color: var(--accent);
+            margin: 16px 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #fafaf8;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(44, 74, 124, 0.1);
+            background: #fff;
+        }
+        .form-group input.pre-filled {
+            background: #f0f4ff;
+            border-color: var(--accent);
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            letter-spacing: 0.4px;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #223560;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(26, 39, 68, 0.3);
+        }
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-secondary:hover {
+            background: #d4b85c;
+            transform: translateY(-1px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-danger {
+            background: var(--danger);
+            color: #fff;
+        }
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: #fff;
+            border-radius: 40px;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 1rem;
+            gap: 10px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        .btn-whatsapp:hover {
+            background: var(--whatsapp-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            color: #fff;
+            text-decoration: none;
+        }
+        .whatsapp-icon {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            border-radius: 6px;
+        }
+
+        .exam-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+            min-height: 65vh;
+        }
+        @media (max-width: 768px) {
+            .exam-layout {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 20px;
+            }
+        }
+        .sidebar {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            border: 1px solid var(--border);
+            position: sticky;
+            top: 100px;
+            max-height: 75vh;
+            overflow-y: auto;
+        }
+        .sidebar .timer-display {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            padding: 12px;
+            background: #f0ede6;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+        }
+        .timer-display.warning {
+            color: var(--warning);
+            animation: pulse 0.8s infinite;
+        }
+        .timer-display.danger {
+            color: var(--danger);
+            animation: pulse 0.5s infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            margin: 12px 0;
+        }
+        .question-grid button {
+            width: 100%;
+            aspect-ratio: 1;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            cursor: pointer;
+            background: #fff;
+            transition: var(--transition);
+        }
+        .question-grid button:hover {
+            border-color: var(--accent);
+            background: #eef3fb;
+        }
+        .question-grid button.current {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #fff;
+        }
+        .question-grid button.answered {
+            background: #d4edda;
+            border-color: var(--success);
+            color: var(--success);
+            font-weight: 900;
+        }
+        .question-grid button.answered.current {
+            background: var(--accent);
+            color: #fff;
+        }
+        .question-grid button.flagged {
+            border-color: var(--warning);
+            box-shadow: inset 0 0 0 3px var(--warning);
+        }
+        .legend {
+            font-size: 0.7rem;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+            color: var(--text-light);
+        }
+        .legend span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .legend .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .dot.answered-dot {
+            background: #d4edda;
+            border: 1px solid var(--success);
+        }
+        .dot.flagged-dot {
+            border: 2px solid var(--warning);
+            background: #fff;
+        }
+        .dot.current-dot {
+            background: var(--accent);
+        }
+
+        .question-area {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px;
+            border: 1px solid var(--border);
+        }
+        .question-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        .question-meta .badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        .badge-topic {
+            background: #e8ecf4;
+            color: var(--accent);
+        }
+        .badge-difficult {
+            background: #fde8e8;
+            color: #9b1c1c;
+        }
+        .badge-advanced {
+            background: #f5e6f0;
+            color: #6b1d5e;
+        }
+        .question-text {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin: 16px 0;
+            line-height: 1.7;
+        }
+        .qc-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .qc-item {
+            background: #f9f8f5;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .qc-item .qc-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+        .options-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+        .options-list li {
+            padding: 12px 16px;
+            margin: 6px 0;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .options-list li:hover {
+            background: #f5f7fb;
+            border-color: var(--accent);
+        }
+        .options-list li.selected {
+            background: #e3ecf9;
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+        .options-list li .radio-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #aaa;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .options-list li.selected .radio-indicator {
+            border-color: var(--accent);
+            background: var(--accent);
+        }
+        .options-list li.selected .radio-indicator::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        .results-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .result-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--radius);
+            background: #f9f8f5;
+            border: 2px solid var(--border);
+        }
+        .result-card .big-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+        .result-card .label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .result-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            z-index: 9999;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            animation: slideIn 0.3s ease;
+            max-width: 400px;
+        }
+        .toast.success {
+            background: var(--success);
+        }
+        .toast.whatsapp {
+            background: var(--whatsapp);
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mt-16 {
+            margin-top: 16px;
+        }
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .gap-8 {
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo-icon">SH</div>
+            <div class="brand-name">
+                SKILLIGENT HANDS TUTORS
+                <small>Excellence in Test Preparation</small>
+            </div>
+        </div>
+        <div class="exam-badge">GRE® Quant Comparison - Advanced</div>
+    </header>
+
+    <div class="main-container" id="appRoot">
+
+        <!-- Login Screen -->
+        <div class="card" id="loginScreen">
+            <h2>📋 Exam Registration</h2>
+            <p style="color:var(--text-light);margin-bottom:16px;">
+                <strong>40 Quantitative Comparison Questions</strong> | Difficulty: Difficult & Advanced<br>
+                Results sent via <strong>WhatsApp</strong> & Email | Hosted by <strong>SKILLIGENT HANDS TUTORS</strong>
+            </p>
+            <div class="form-group">
+                <label for="candidateName">Full Name *</label>
+                <input type="text" id="candidateName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="candidateEmail">Your Email Address *</label>
+                <input type="email" id="candidateEmail" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="examinerEmail">Examiner's Email *</label>
+                <input type="email" id="examinerEmail" class="pre-filled" value="iscoewe2014@gmail.com" required readonly>
+                <small style="color:var(--accent);">📧 Email: iscoewe2014@gmail.com | 📱 WhatsApp: +234 803 940 2346</small>
+            </div>
+            <button class="btn btn-primary" onclick="startExam()">▶ Start Exam (40 Questions)</button>
+            <p style="margin-top:12px;font-size:0.85rem;color:var(--text-light);">
+                ⏱ 70 Minutes | Unlimited Attempts | All Quantitative Comparison
+            </p>
+            <div class="text-center mt-16">
+                <a href="https://wa.me/2348039402346" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.6 6.3A11.5 11.5 0 0 0 12 4a11.5 11.5 0 0 0-8.3 19.2L2 22l1.7-1.7A11.5 11.5 0 1 0 17.6 6.3zM12 20.7a9 9 0 0 1-4.6-1.2l-.3-.2-3 .8.8-3-.2-.3A9 9 0 1 1 12 20.7z"/>
+                        <path d="M16.2 14c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1s-.6.7-.7.9c-.1.1-.2.1-.4 0-.8-.3-1.5-.7-2-1.3-.1-.2-.1-.3.1-.5.1-.1.2-.3.3-.5.1-.2.1-.3 0-.5-.1-.1-.5-1.2-.6-1.6-.1-.3-.2-.2-.3-.2h-.3c-.1 0-.3.1-.5.2-.5.5-.8 1.2-.7 2 .1.9.7 1.7 1.5 2.3.6.5 1.4.9 2.2 1.1.2 0 .4.1.6.1.6 0 1.1-.2 1.5-.6.2-.2.3-.4.4-.7.1-.3 0-.6-.2-.7z"/>
+                    </svg>
+                    Chat with us on WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="card hidden" id="instructionsScreen">
+            <h2>📝 Exam Instructions</h2>
+            <div style="text-align:left;max-width:700px;margin:0 auto;">
+                <h3>Format</h3>
+                <ul>
+                    <li><strong>40 Quantitative Comparison Questions</strong></li>
+                    <li>Time: <strong>70 Minutes</strong></li>
+                    <li>Difficulty: Difficult (Q1-20) and Advanced (Q21-40)</li>
+                </ul>
+                <h3>Answer Choices (All Questions)</h3>
+                <ul>
+                    <li><strong>A:</strong> Quantity A is greater</li>
+                    <li><strong>B:</strong> Quantity B is greater</li>
+                    <li><strong>C:</strong> The two quantities are equal</li>
+                    <li><strong>D:</strong> The relationship cannot be determined</li>
+                </ul>
+                <h3>Result Delivery</h3>
+                <ul>
+                    <li>📱 Results sent to <strong>WhatsApp (+234 803 940 2346)</strong></li>
+                    <li>📧 Also sent to <strong>iscoewe2014@gmail.com</strong></li>
+                </ul>
+            </div>
+            <button class="btn btn-primary" onclick="beginExam()">▶ Begin Exam</button>
+        </div>
+
+        <!-- Exam Screen -->
+        <div class="hidden" id="examScreen">
+            <div class="exam-layout">
+                <div class="sidebar" id="sidebar">
+                    <div class="section-label">QC Exam</div>
+                    <div class="timer-display" id="timerDisplay">70:00</div>
+                    <div class="question-grid" id="questionGrid"></div>
+                    <div class="legend">
+                        <span><span class="dot answered-dot"></span> Answered</span>
+                        <span><span class="dot flagged-dot"></span> Flagged</span>
+                        <span><span class="dot current-dot"></span> Current</span>
+                    </div>
+                    <button class="btn btn-danger btn-sm mt-16" style="width:100%;" onclick="submitExam()">📤 Submit Exam</button>
+                </div>
+                <div class="question-area" id="questionArea">
+                    <div class="question-meta" id="questionMeta"></div>
+                    <div class="question-text" id="questionText"></div>
+                    <div id="questionContent"></div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;">
+                        <button class="btn btn-outline btn-sm" onclick="navigateQuestion(-1)">← Previous</button>
+                        <button class="btn btn-outline btn-sm" onclick="navigateQuestion(1)">Next →</button>
+                        <button class="btn btn-sm" id="btnFlag" onclick="toggleFlag()" style="background:#fef3e0;color:#b8731f;border:1px solid #e67e22;">🚩 Flag</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="card hidden" id="resultsScreen">
+            <h2>📊 Exam Results</h2>
+            <div id="resultsContent"></div>
+            <div class="result-actions">
+                <a href="#" id="whatsappLink" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" onclick="sendToWhatsApp()">
+                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.6 6.3A11.5 11.5 0 0 0 12 4a11.5 11.5 0 0 0-8.3 19.2L2 22l1.7-1.7A11.5 11.5 0 1 0 17.6 6.3zM12 20.7a9 9 0 0 1-4.6-1.2l-.3-.2-3 .8.8-3-.2-.3A9 9 0 1 1 12 20.7z"/>
+                        <path d="M16.2 14c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1s-.6.7-.7.9c-.1.1-.2.1-.4 0-.8-.3-1.5-.7-2-1.3-.1-.2-.1-.3.1-.5.1-.1.2-.3.3-.5.1-.2.1-.3 0-.5-.1-.1-.5-1.2-.6-1.6-.1-.3-.2-.2-.3-.2h-.3c-.1 0-.3.1-.5.2-.5.5-.8 1.2-.7 2 .1.9.7 1.7 1.5 2.3.6.5 1.4.9 2.2 1.1.2 0 .4.1.6.1.6 0 1.1-.2 1.5-.6.2-.2.3-.4.4-.7.1-.3 0-.6-.2-.7z"/>
+                    </svg>
+                    📱 Send Results via WhatsApp
+                </a>
+                <button class="btn btn-primary" onclick="sendResultsEmail()">📧 Send via Email</button>
+                <button class="btn btn-secondary" onclick="copyResults()">📋 Copy Results</button>
+            </div>
+            <p id="statusMessage" style="margin-top:16px;font-size:0.9rem;color:var(--text-light);text-align:center;"></p>
+            <div class="text-center mt-16">
+                <button class="btn btn-outline btn-sm" onclick="resetAndGoHome()">🏠 Return to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastContainer"></div>
+
+    <script>
+        const APP_STATE = {
+            candidateName: '',
+            candidateEmail: '',
+            examinerEmail: 'iscoewe2014@gmail.com',
+            whatsappNumber: '2348039402346',
+            currentQuestionIndex: 0,
+            timeLeft: 70 * 60,
+            timerInterval: null,
+            answers: {},
+            flagged: {},
+            _results: null
+        };
+
+        // 40 Difficult & Advanced Quantitative Comparison Questions
+        const questions = [
+            // DIFFICULT (Q1-Q20)
+            { id: 'q0', topic: 'Algebra', difficulty: 'difficult', questionText: 'If x and y are integers and (x+y)² = 49 and (x-y)² = 1, which quantity is greater?', quantityA: 'x² + y²', quantityB: '25', correct: 'C' },
+            { id: 'q1', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'n is a positive integer. The remainder when 2ⁿ is divided by 3 is compared to 1.', quantityA: 'Remainder when 2ⁿ is divided by 3', quantityB: '1', correct: 'D' },
+            { id: 'q2', topic: 'Geometry', difficulty: 'difficult', questionText: 'A circle and a square have the same perimeter P. Compare their areas.', quantityA: 'Area of the circle', quantityB: 'Area of the square', correct: 'A' },
+            { id: 'q3', topic: 'Algebra', difficulty: 'difficult', questionText: 'If a, b, c are positive real numbers with a < b < c, compare the expressions.', quantityA: '(a+b+c)/3', quantityB: 'b', correct: 'D' },
+            { id: 'q4', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'The product of three distinct prime numbers is 1001. Compare the sum of these primes to 31.', quantityA: 'Sum of the three primes', quantityB: '31', correct: 'C' },
+            { id: 'q5', topic: 'Geometry', difficulty: 'difficult', questionText: 'A right triangle has legs of length a and b. The hypotenuse is c. Compare a² + b² to c².', quantityA: 'a² + b²', quantityB: 'c²', correct: 'C' },
+            { id: 'q6', topic: 'Data Analysis', difficulty: 'difficult', questionText: 'Set X has mean μ and standard deviation σ. Each element is transformed by y = 2x + 3. Compare the new standard deviation to 2σ.', quantityA: 'New standard deviation', quantityB: '2σ', correct: 'C' },
+            { id: 'q7', topic: 'Algebra', difficulty: 'difficult', questionText: 'If f(x) = x² - 4x + 7, compare f(2+h) and f(2-h) for h > 0.', quantityA: 'f(2+h)', quantityB: 'f(2-h)', correct: 'C' },
+            { id: 'q8', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'How does the number of factors of 72 compare to the number of factors of 60?', quantityA: 'Number of positive factors of 72', quantityB: 'Number of positive factors of 60', correct: 'C' },
+            { id: 'q9', topic: 'Geometry', difficulty: 'difficult', questionText: 'A cone and a cylinder have equal radii and equal volumes. Compare the height of the cone to the height of the cylinder.', quantityA: 'Height of the cone', quantityB: '3 × height of the cylinder', correct: 'C' },
+            { id: 'q10', topic: 'Algebra', difficulty: 'difficult', questionText: 'If |x-3| < 2 and |y-5| < 1, compare |x+y-8| to 3.', quantityA: '|x+y-8|', quantityB: '3', correct: 'B' },
+            { id: 'q11', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'A number is increased by 20% then decreased by 20%. Compare the final number to the original.', quantityA: 'Final number', quantityB: 'Original number', correct: 'B' },
+            { id: 'q12', topic: 'Geometry', difficulty: 'difficult', questionText: 'In triangle ABC, angle A = 80°, angle B = 60°. Compare side BC to side AC.', quantityA: 'Length of BC', quantityB: 'Length of AC', correct: 'A' },
+            { id: 'q13', topic: 'Data Analysis', difficulty: 'difficult', questionText: 'Two dice are rolled. Compare the probability of sum ≥ 10 to the probability of sum ≤ 4.', quantityA: 'P(sum ≥ 10)', quantityB: 'P(sum ≤ 4)', correct: 'C' },
+            { id: 'q14', topic: 'Algebra', difficulty: 'difficult', questionText: 'If 2ˣ = 8ʸ = 64, compare x to 2y.', quantityA: 'x', quantityB: '2y', correct: 'C' },
+            { id: 'q15', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'The GCD of two numbers is 6 and their LCM is 72. If one number is 24, compare the other number to 18.', quantityA: 'The other number', quantityB: '18', correct: 'C' },
+            { id: 'q16', topic: 'Geometry', difficulty: 'difficult', questionText: 'A sphere is inscribed in a cube. Compare the surface area of the sphere to half the surface area of the cube.', quantityA: 'Surface area of sphere', quantityB: 'Half surface area of cube', correct: 'A' },
+            { id: 'q17', topic: 'Algebra', difficulty: 'difficult', questionText: 'If log₂(x) = 3 and log₂(y) = 5, compare log₂(xy) to 8.', quantityA: 'log₂(xy)', quantityB: '8', correct: 'C' },
+            { id: 'q18', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'For positive integers, compare the number of multiples of 3 less than 100 to the number of multiples of 4 less than 100.', quantityA: 'Multiples of 3 < 100', quantityB: 'Multiples of 4 < 100', correct: 'A' },
+            { id: 'q19', topic: 'Geometry', difficulty: 'difficult', questionText: 'A regular hexagon has side length s. Compare its area to the area of an equilateral triangle with side 2s.', quantityA: 'Area of regular hexagon', quantityB: 'Area of equilateral triangle (side 2s)', correct: 'A' },
+            // ADVANCED (Q21-Q40)
+            { id: 'q20', topic: 'Algebra', difficulty: 'advanced', questionText: 'If x⁴ - 5x² + 4 = 0, compare the sum of all real solutions to 0.', quantityA: 'Sum of all real solutions', quantityB: '0', correct: 'C' },
+            { id: 'q21', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'Let N = 2¹⁰⁰ - 2⁹⁹. Compare N to 2⁹⁹.', quantityA: 'N', quantityB: '2⁹⁹', correct: 'C' },
+            { id: 'q22', topic: 'Geometry', difficulty: 'advanced', questionText: 'In a circle, a central angle of 60° subtends an arc. Compare the chord length to the radius.', quantityA: 'Length of the chord', quantityB: 'Radius of the circle', correct: 'C' },
+            { id: 'q23', topic: 'Algebra', difficulty: 'advanced', questionText: 'If a, b are positive real numbers with a + b = 1, compare a² + b² to 1/2.', quantityA: 'a² + b²', quantityB: '1/2', correct: 'D' },
+            { id: 'q24', topic: 'Data Analysis', difficulty: 'advanced', questionText: 'In a normal distribution, compare the percentage of data within 1 standard deviation of the mean to 68%.', quantityA: 'Percentage within 1 SD of mean', quantityB: '68%', correct: 'C' },
+            { id: 'q25', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'If n!/(n-2)! = 30, compare n to 6.', quantityA: 'n', quantityB: '6', correct: 'C' },
+            { id: 'q26', topic: 'Geometry', difficulty: 'advanced', questionText: 'A tetrahedron has all edges of length a. Compare its volume to a³/(6√2).', quantityA: 'Volume of tetrahedron', quantityB: 'a³/(6√2)', correct: 'C' },
+            { id: 'q27', topic: 'Algebra', difficulty: 'advanced', questionText: 'If z is a complex number with |z| = 1, compare |z+1| to |z-1|.', quantityA: '|z+1|', quantityB: '|z-1|', correct: 'D' },
+            { id: 'q28', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'The sum of the first n positive integers is 210. Compare n to 20.', quantityA: 'n', quantityB: '20', correct: 'C' },
+            { id: 'q29', topic: 'Geometry', difficulty: 'advanced', questionText: 'A parabola y = ax² + bx + c has vertex at (2, -3). Compare a to 0.', quantityA: 'a', quantityB: '0', correct: 'D' },
+            { id: 'q30', topic: 'Algebra', difficulty: 'advanced', questionText: 'If xʸ = yˣ and x ≠ y (x,y > 0), compare x to y.', quantityA: 'x', quantityB: 'y', correct: 'D' },
+            { id: 'q31', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'Consider the sequence: 1, 1, 2, 3, 5, 8, 13,... Compare the 15th term to 600.', quantityA: '15th term', quantityB: '600', correct: 'A' },
+            { id: 'q32', topic: 'Geometry', difficulty: 'advanced', questionText: 'In 3D, compare the number of faces of a dodecahedron to the number of vertices of an icosahedron.', quantityA: 'Faces of dodecahedron', quantityB: 'Vertices of icosahedron', correct: 'C' },
+            { id: 'q33', topic: 'Data Analysis', difficulty: 'advanced', questionText: 'A fair coin is tossed until heads appears. Compare the expected number of tosses to 2.', quantityA: 'Expected number of tosses', quantityB: '2', correct: 'C' },
+            { id: 'q34', topic: 'Algebra', difficulty: 'advanced', questionText: 'If ∫₀¹ x² dx is compared to ∫₀¹ x³ dx, which is greater?', quantityA: '∫₀¹ x² dx', quantityB: '∫₀¹ x³ dx', correct: 'A' },
+            { id: 'q35', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'The infinite series 1 + 1/2 + 1/4 + 1/8 + ... sums to S. Compare S to 2.', quantityA: 'Sum S', quantityB: '2', correct: 'C' },
+            { id: 'q36', topic: 'Geometry', difficulty: 'advanced', questionText: 'A rectangle has perimeter P and area A. Compare P²/16 to A.', quantityA: 'P²/16', quantityB: 'A', correct: 'D' },
+            { id: 'q37', topic: 'Algebra', difficulty: 'advanced', questionText: 'If det([[a,b],[c,d]]) = 5, compare det([[2a,2b],[c,d]]) to 10.', quantityA: 'det([[2a,2b],[c,d]])', quantityB: '10', correct: 'C' },
+            { id: 'q38', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'For how many integers n (1 ≤ n ≤ 100) is n² + n + 41 prime? Compare this count to 80.', quantityA: 'Count of n giving prime', quantityB: '80', correct: 'B' },
+            { id: 'q39', topic: 'Geometry', difficulty: 'advanced', questionText: 'A curve has parametric equations x = cos(t), y = sin(2t). Compare the area enclosed to π.', quantityA: 'Area enclosed by the curve', quantityB: 'π', correct: 'B' }
+        ];
+
+        function showToast(message, type = '') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast ' + type;
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 4000);
+        }
+
+        function startExam() {
+            const name = document.getElementById('candidateName').value.trim();
+            const email = document.getElementById('candidateEmail').value.trim();
+            if (!name || !email) { showToast('⚠️ Please fill all fields.', 'warning'); return; }
+            if (!email.includes('@')) { showToast('⚠️ Enter valid email.', 'warning'); return; }
+            APP_STATE.candidateName = name;
+            APP_STATE.candidateEmail = email;
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('instructionsScreen').classList.remove('hidden');
+        }
+
+        function beginExam() {
+            APP_STATE.currentQuestionIndex = 0;
+            APP_STATE.timeLeft = 70 * 60;
+            APP_STATE.answers = {};
+            APP_STATE.flagged = {};
+            document.getElementById('instructionsScreen').classList.add('hidden');
+            document.getElementById('examScreen').classList.remove('hidden');
+            document.getElementById('resultsScreen').classList.add('hidden');
+            document.getElementById('timerDisplay').classList.remove('warning', 'danger');
+            document.getElementById('timerDisplay').textContent = '70:00';
+            renderQuestionGrid();
+            renderQuestion();
+            startTimer();
+            showToast('📝 Exam started! 40 QC Questions - 70 Minutes', 'success');
+        }
+
+        function startTimer() {
+            clearInterval(APP_STATE.timerInterval);
+            APP_STATE.timerInterval = setInterval(() => {
+                APP_STATE.timeLeft--;
+                updateTimerDisplay();
+                if (APP_STATE.timeLeft <= 0) {
+                    clearInterval(APP_STATE.timerInterval);
+                    showResults();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const t = APP_STATE.timeLeft;
+            const mins = Math.floor(t / 60);
+            const secs = t % 60;
+            const display = document.getElementById('timerDisplay');
+            display.textContent = String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+            display.classList.remove('warning', 'danger');
+            if (t <= 60) display.classList.add('danger');
+            else if (t <= 300) display.classList.add('warning');
+        }
+
+        function navigateQuestion(delta) {
+            const newIndex = APP_STATE.currentQuestionIndex + delta;
+            if (newIndex >= 0 && newIndex < questions.length) {
+                APP_STATE.currentQuestionIndex = newIndex;
+                renderQuestion();
+                renderQuestionGrid();
+            }
+        }
+
+        function goToQuestion(index) {
+            if (index >= 0 && index < questions.length) {
+                APP_STATE.currentQuestionIndex = index;
+                renderQuestion();
+                renderQuestionGrid();
+            }
+        }
+
+        function toggleFlag() {
+            const q = questions[APP_STATE.currentQuestionIndex];
+            APP_STATE.flagged[q.id] = !APP_STATE.flagged[q.id];
+            renderQuestionGrid();
+            document.getElementById('btnFlag').textContent = APP_STATE.flagged[q.id] ? '🚩 Flagged' : '🚩 Flag';
+        }
+
+        function renderQuestionGrid() {
+            const grid = document.getElementById('questionGrid');
+            grid.innerHTML = '';
+            questions.forEach((q, i) => {
+                const btn = document.createElement('button');
+                btn.textContent = i + 1;
+                if (i === APP_STATE.currentQuestionIndex) btn.classList.add('current');
+                if (APP_STATE.answers[q.id] !== undefined) btn.classList.add('answered');
+                if (APP_STATE.flagged[q.id]) btn.classList.add('flagged');
+                btn.onclick = () => goToQuestion(i);
+                grid.appendChild(btn);
+            });
+            const currentQ = questions[APP_STATE.currentQuestionIndex];
+            document.getElementById('btnFlag').textContent = APP_STATE.flagged[currentQ.id] ? '🚩 Flagged' : '🚩 Flag';
+        }
+
+        function renderQuestion() {
+            const q = questions[APP_STATE.currentQuestionIndex];
+            document.getElementById('questionMeta').innerHTML = `
+                <span><strong>Question ${APP_STATE.currentQuestionIndex + 1} of 40</strong></span>
+                <span class="badge badge-topic">${q.topic}</span>
+                <span class="badge badge-${q.difficulty}">${q.difficulty}</span>
+            `;
+            document.getElementById('questionText').textContent = q.questionText;
+
+            const contentDiv = document.getElementById('questionContent');
+            contentDiv.innerHTML = `
+                <div class="qc-box">
+                    <div class="qc-item"><div class="qc-label">Quantity A</div>${q.quantityA}</div>
+                    <div class="qc-item"><div class="qc-label">Quantity B</div>${q.quantityB}</div>
+                </div>
+                <ul class="options-list" id="optionsList">
+                    <li data-value="A" onclick="selectOption('${q.id}', 'A')">
+                        <span class="radio-indicator"></span> A) Quantity A is greater
+                    </li>
+                    <li data-value="B" onclick="selectOption('${q.id}', 'B')">
+                        <span class="radio-indicator"></span> B) Quantity B is greater
+                    </li>
+                    <li data-value="C" onclick="selectOption('${q.id}', 'C')">
+                        <span class="radio-indicator"></span> C) The two quantities are equal
+                    </li>
+                    <li data-value="D" onclick="selectOption('${q.id}', 'D')">
+                        <span class="radio-indicator"></span> D) Cannot be determined
+                    </li>
+                </ul>`;
+
+            const saved = APP_STATE.answers[q.id];
+            if (saved) {
+                const allLis = document.querySelectorAll('#optionsList li');
+                allLis.forEach(li => { if (li.dataset.value === saved) li.classList.add('selected'); });
+            }
+        }
+
+        function selectOption(questionId, value) {
+            APP_STATE.answers[questionId] = value;
+            const allLis = document.querySelectorAll('#optionsList li');
+            allLis.forEach(li => li.classList.remove('selected'));
+            allLis.forEach(li => { if (li.dataset.value === value) li.classList.add('selected'); });
+            renderQuestionGrid();
+        }
+
+        function submitExam() {
+            clearInterval(APP_STATE.timerInterval);
+            showResults();
+        }
+
+        function generateResultsText() {
+            const r = APP_STATE._results;
+            if (!r) return '';
+            return `GRE Quantitative Comparison Results
+SKILLIGENT HANDS TUTORS
+━━━━━━━━━━━━━━━━━━━━
+Candidate: ${APP_STATE.candidateName}
+Email: ${APP_STATE.candidateEmail}
+Date: ${new Date().toLocaleString()}
+━━━━━━━━━━━━━━━━━━━━
+Score: ${r.correct}/40 (${r.percent}%)
+✅ Correct: ${r.correct}
+❌ Wrong: ${r.wrong}
+⬜ Unanswered: ${r.unanswered}
+━━━━━━━━━━━━━━━━━━━━
+Examiner: ${APP_STATE.examinerEmail}
+Host: SKILLIGENT HANDS TUTORS`;
+        }
+
+        function showResults() {
+            document.getElementById('examScreen').classList.add('hidden');
+            document.getElementById('resultsScreen').classList.remove('hidden');
+
+            let correct = 0, wrong = 0, unanswered = 0;
+            questions.forEach(q => {
+                const ans = APP_STATE.answers[q.id];
+                if (!ans) unanswered++;
+                else if (ans === q.correct) correct++;
+                else wrong++;
+            });
+
+            const percent = Math.round((correct / questions.length) * 100);
+            APP_STATE._results = { correct, wrong, unanswered, total: questions.length, percent };
+
+            // Build WhatsApp message
+            const waMessage = encodeURIComponent(generateResultsText());
+            const waLink = `https://wa.me/${APP_STATE.whatsappNumber}?text=${waMessage}`;
+            document.getElementById('whatsappLink').href = waLink;
+
+            document.getElementById('resultsContent').innerHTML = `
+                <div class="results-summary">
+                    <div class="result-card"><div class="big-number">${correct}/40</div><div class="label">Correct</div></div>
+                    <div class="result-card"><div class="big-number">${percent}%</div><div class="label">Score</div></div>
+                    <div class="result-card"><div class="big-number">${wrong}</div><div class="label">Wrong</div></div>
+                    <div class="result-card"><div class="big-number">${unanswered}</div><div class="label">Unanswered</div></div>
+                </div>
+                <p style="text-align:center;font-weight:600;color:var(--accent);">
+                    🏆 SKILLIGENT HANDS TUTORS
+                </p>
+                <p style="text-align:center;color:var(--text-light);">
+                    📱 Results ready for WhatsApp: <strong>+234 803 940 2346</strong><br>
+                    📧 Also sending to: <strong>${APP_STATE.examinerEmail}</strong>
+                </p>`;
+            document.getElementById('statusMessage').textContent = '';
+
+            // Auto-open WhatsApp after 1 second
+            setTimeout(() => {
+                sendToWhatsApp();
+            }, 1000);
+
+            showToast('📊 Results ready! Opening WhatsApp...', 'success');
+        }
+
+        function sendToWhatsApp() {
+            const r = APP_STATE._results;
+            if (!r) return;
+            const message = encodeURIComponent(generateResultsText());
+            const waLink = `https://wa.me/${APP_STATE.whatsappNumber}?text=${message}`;
+            window.open(waLink, '_blank');
+            document.getElementById('statusMessage').textContent = '✅ WhatsApp opened. Please send the message.';
+            showToast('📱 WhatsApp opened with results!', 'whatsapp');
+        }
+
+        function sendResultsEmail() {
+            const r = APP_STATE._results;
+            if (!r) return;
+            const subject = encodeURIComponent(`GRE QC Results - ${APP_STATE.candidateName} | SKILLIGENT HANDS`);
+            const body = encodeURIComponent(generateResultsText());
+            window.open(`mailto:${APP_STATE.examinerEmail}?subject=${subject}&body=${body}`, '_blank');
+            document.getElementById('statusMessage').textContent = '✅ Email client opened.';
+            showToast('📧 Email client opened!', 'success');
+        }
+
+        function copyResults() {
+            const text = generateResultsText();
+            navigator.clipboard.writeText(text).then(() => {
+                document.getElementById('statusMessage').textContent = '✅ Results copied to clipboard!';
+                showToast('📋 Copied!', 'success');
+            });
+        }
+
+        function resetAndGoHome() {
+            clearInterval(APP_STATE.timerInterval);
+            APP_STATE.currentQuestionIndex = 0;
+            APP_STATE.timeLeft = 70 * 60;
+            APP_STATE.answers = {};
+            APP_STATE.flagged = {};
+            APP_STATE._results = null;
+            document.getElementById('examScreen').classList.add('hidden');
+            document.getElementById('resultsScreen').classList.add('hidden');
+            document.getElementById('instructionsScreen').classList.add('hidden');
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('timerDisplay').classList.remove('warning', 'danger');
+            document.getElementById('timerDisplay').textContent = '70:00';
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('examScreen').classList.contains('hidden')) return;
+            if (e.key === 'ArrowLeft') { e.preventDefault(); navigateQuestion(-1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); navigateQuestion(1); }
+            if (e.key === 'a' || e.key === 'A') selectOption(questions[APP_STATE.currentQuestionIndex].id, 'A');
+            if (e.key === 'b' || e.key === 'B') selectOption(questions[APP_STATE.currentQuestionIndex].id, 'B');
+            if (e.key === 'c' || e.key === 'C') selectOption(questions[APP_STATE.currentQuestionIndex].id, 'C');
+            if (e.key === 'd' || e.key === 'D') selectOption(questions[APP_STATE.currentQuestionIndex].id, 'D');
+        });
+
+        // Init
+        document.getElementById('examinerEmail').value = 'iscoewe2014@gmail.com';
+        console.log('✅ GRE QC Advanced Mock - SKILLIGENT HANDS TUTORS');
+        console.log('📱 WhatsApp: +234 803 940 2346');
+        console.log('📧 Email: iscoewe2014@gmail.com');
+    </script>
+</body>
+</html>
