@@ -181,10 +181,6 @@
             background: var(--secondary);
             color: var(--primary);
         }
-        .btn-secondary:hover {
-            background: #d4b85c;
-            transform: translateY(-1px);
-        }
         .btn-outline {
             background: transparent;
             border: 2px solid var(--primary);
@@ -228,6 +224,7 @@
             border-radius: 6px;
         }
 
+        /* Exam Layout */
         .exam-layout {
             display: grid;
             grid-template-columns: 280px 1fr;
@@ -253,7 +250,7 @@
             max-height: 75vh;
             overflow-y: auto;
         }
-        .sidebar .timer-display {
+        .timer-display {
             text-align: center;
             font-size: 2.2rem;
             font-weight: 900;
@@ -368,7 +365,7 @@
             font-size: 0.8rem;
             color: var(--text-light);
         }
-        .question-meta .badge {
+        .badge {
             padding: 4px 10px;
             border-radius: 12px;
             font-weight: 600;
@@ -407,7 +404,7 @@
             font-weight: 600;
             font-size: 1rem;
         }
-        .qc-item .qc-label {
+        .qc-label {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -439,7 +436,7 @@
             border-color: var(--accent);
             font-weight: 700;
         }
-        .options-list li .radio-indicator {
+        .radio-indicator {
             width: 20px;
             height: 20px;
             border-radius: 50%;
@@ -461,6 +458,7 @@
             background: #fff;
         }
 
+        /* Results */
         .results-summary {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -484,13 +482,95 @@
             color: var(--text-light);
             text-transform: uppercase;
         }
-
         .result-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             justify-content: center;
             margin-top: 24px;
+        }
+
+        /* Review Section */
+        .review-section {
+            margin-top: 30px;
+        }
+        .review-item {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+        .review-item.correct-review {
+            border-left: 5px solid var(--success);
+            background: #f8fdf9;
+        }
+        .review-item.wrong-review {
+            border-left: 5px solid var(--danger);
+            background: #fef9f9;
+        }
+        .review-item.unanswered-review {
+            border-left: 5px solid var(--warning);
+            background: #fffdf5;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .review-status {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .review-status.correct {
+            color: var(--success);
+        }
+        .review-status.wrong {
+            color: var(--danger);
+        }
+        .review-status.unanswered {
+            color: var(--warning);
+        }
+        .review-details {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .review-details .answer-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 6px 0;
+        }
+        .explanation-box {
+            background: #f0f4f8;
+            border-radius: 8px;
+            padding: 14px;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        .explanation-box strong {
+            color: var(--accent);
+        }
+        .expand-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .expand-btn:hover {
+            background: #e8ecf4;
         }
 
         .toast {
@@ -561,8 +641,8 @@
         <div class="card" id="loginScreen">
             <h2>📋 Exam Registration</h2>
             <p style="color:var(--text-light);margin-bottom:16px;">
-                <strong>40 Quantitative Comparison Questions</strong> | Difficulty: Difficult & Advanced<br>
-                Results sent via <strong>WhatsApp</strong> & Email | Hosted by <strong>SKILLIGENT HANDS TUTORS</strong>
+                <strong>40 Quantitative Comparison Questions</strong> | Difficult & Advanced<br>
+                Results with <strong>detailed explanations</strong> | Hosted by <strong>SKILLIGENT HANDS TUTORS</strong>
             </p>
             <div class="form-group">
                 <label for="candidateName">Full Name *</label>
@@ -579,7 +659,7 @@
             </div>
             <button class="btn btn-primary" onclick="startExam()">▶ Start Exam (40 Questions)</button>
             <p style="margin-top:12px;font-size:0.85rem;color:var(--text-light);">
-                ⏱ 70 Minutes | Unlimited Attempts | All Quantitative Comparison
+                ⏱ 70 Minutes | Unlimited Attempts | Includes Answer Review
             </p>
             <div class="text-center mt-16">
                 <a href="https://wa.me/2348039402346" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
@@ -587,7 +667,7 @@
                         <path d="M17.6 6.3A11.5 11.5 0 0 0 12 4a11.5 11.5 0 0 0-8.3 19.2L2 22l1.7-1.7A11.5 11.5 0 1 0 17.6 6.3zM12 20.7a9 9 0 0 1-4.6-1.2l-.3-.2-3 .8.8-3-.2-.3A9 9 0 1 1 12 20.7z"/>
                         <path d="M16.2 14c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1s-.6.7-.7.9c-.1.1-.2.1-.4 0-.8-.3-1.5-.7-2-1.3-.1-.2-.1-.3.1-.5.1-.1.2-.3.3-.5.1-.2.1-.3 0-.5-.1-.1-.5-1.2-.6-1.6-.1-.3-.2-.2-.3-.2h-.3c-.1 0-.3.1-.5.2-.5.5-.8 1.2-.7 2 .1.9.7 1.7 1.5 2.3.6.5 1.4.9 2.2 1.1.2 0 .4.1.6.1.6 0 1.1-.2 1.5-.6.2-.2.3-.4.4-.7.1-.3 0-.6-.2-.7z"/>
                     </svg>
-                    Chat with us on WhatsApp
+                    Chat on WhatsApp
                 </a>
             </div>
         </div>
@@ -600,19 +680,21 @@
                 <ul>
                     <li><strong>40 Quantitative Comparison Questions</strong></li>
                     <li>Time: <strong>70 Minutes</strong></li>
-                    <li>Difficulty: Difficult (Q1-20) and Advanced (Q21-40)</li>
+                    <li>Difficult (Q1-20) and Advanced (Q21-40)</li>
                 </ul>
-                <h3>Answer Choices (All Questions)</h3>
+                <h3>Answer Choices</h3>
                 <ul>
                     <li><strong>A:</strong> Quantity A is greater</li>
                     <li><strong>B:</strong> Quantity B is greater</li>
                     <li><strong>C:</strong> The two quantities are equal</li>
-                    <li><strong>D:</strong> The relationship cannot be determined</li>
+                    <li><strong>D:</strong> Cannot be determined</li>
                 </ul>
-                <h3>Result Delivery</h3>
+                <h3>After Submission</h3>
                 <ul>
-                    <li>📱 Results sent to <strong>WhatsApp (+234 803 940 2346)</strong></li>
-                    <li>📧 Also sent to <strong>iscoewe2014@gmail.com</strong></li>
+                    <li>📊 Full score breakdown</li>
+                    <li>📝 Detailed answer review with explanations</li>
+                    <li>📱 Results sent to WhatsApp (+234 803 940 2346)</li>
+                    <li>📧 Results emailed to iscoewe2014@gmail.com</li>
                 </ul>
             </div>
             <button class="btn btn-primary" onclick="beginExam()">▶ Begin Exam</button>
@@ -648,19 +730,27 @@
         <!-- Results Screen -->
         <div class="card hidden" id="resultsScreen">
             <h2>📊 Exam Results</h2>
-            <div id="resultsContent"></div>
+            <div id="resultsSummary"></div>
             <div class="result-actions">
                 <a href="#" id="whatsappLink" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" onclick="sendToWhatsApp()">
                     <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.6 6.3A11.5 11.5 0 0 0 12 4a11.5 11.5 0 0 0-8.3 19.2L2 22l1.7-1.7A11.5 11.5 0 1 0 17.6 6.3zM12 20.7a9 9 0 0 1-4.6-1.2l-.3-.2-3 .8.8-3-.2-.3A9 9 0 1 1 12 20.7z"/>
                         <path d="M16.2 14c-.2-.1-1.3-.6-1.5-.7-.2-.1-.3-.1-.5.1s-.6.7-.7.9c-.1.1-.2.1-.4 0-.8-.3-1.5-.7-2-1.3-.1-.2-.1-.3.1-.5.1-.1.2-.3.3-.5.1-.2.1-.3 0-.5-.1-.1-.5-1.2-.6-1.6-.1-.3-.2-.2-.3-.2h-.3c-.1 0-.3.1-.5.2-.5.5-.8 1.2-.7 2 .1.9.7 1.7 1.5 2.3.6.5 1.4.9 2.2 1.1.2 0 .4.1.6.1.6 0 1.1-.2 1.5-.6.2-.2.3-.4.4-.7.1-.3 0-.6-.2-.7z"/>
                     </svg>
-                    📱 Send Results via WhatsApp
+                    📱 Send via WhatsApp
                 </a>
                 <button class="btn btn-primary" onclick="sendResultsEmail()">📧 Send via Email</button>
                 <button class="btn btn-secondary" onclick="copyResults()">📋 Copy Results</button>
             </div>
             <p id="statusMessage" style="margin-top:16px;font-size:0.9rem;color:var(--text-light);text-align:center;"></p>
+            
+            <!-- Answer Review Section -->
+            <div class="review-section" id="reviewSection">
+                <h3>📝 Detailed Answer Review</h3>
+                <p style="color:var(--text-light);margin-bottom:16px;">Review each question with correct answers and explanations.</p>
+                <div id="reviewContent"></div>
+            </div>
+            
             <div class="text-center mt-16">
                 <button class="btn btn-outline btn-sm" onclick="resetAndGoHome()">🏠 Return to Home</button>
             </div>
@@ -680,54 +770,267 @@
             timerInterval: null,
             answers: {},
             flagged: {},
-            _results: null
+            _results: null,
+            _details: []
         };
 
-        // 40 Difficult & Advanced Quantitative Comparison Questions
+        // 40 Questions with full explanations
         const questions = [
             // DIFFICULT (Q1-Q20)
-            { id: 'q0', topic: 'Algebra', difficulty: 'difficult', questionText: 'If x and y are integers and (x+y)² = 49 and (x-y)² = 1, which quantity is greater?', quantityA: 'x² + y²', quantityB: '25', correct: 'C' },
-            { id: 'q1', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'n is a positive integer. The remainder when 2ⁿ is divided by 3 is compared to 1.', quantityA: 'Remainder when 2ⁿ is divided by 3', quantityB: '1', correct: 'D' },
-            { id: 'q2', topic: 'Geometry', difficulty: 'difficult', questionText: 'A circle and a square have the same perimeter P. Compare their areas.', quantityA: 'Area of the circle', quantityB: 'Area of the square', correct: 'A' },
-            { id: 'q3', topic: 'Algebra', difficulty: 'difficult', questionText: 'If a, b, c are positive real numbers with a < b < c, compare the expressions.', quantityA: '(a+b+c)/3', quantityB: 'b', correct: 'D' },
-            { id: 'q4', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'The product of three distinct prime numbers is 1001. Compare the sum of these primes to 31.', quantityA: 'Sum of the three primes', quantityB: '31', correct: 'C' },
-            { id: 'q5', topic: 'Geometry', difficulty: 'difficult', questionText: 'A right triangle has legs of length a and b. The hypotenuse is c. Compare a² + b² to c².', quantityA: 'a² + b²', quantityB: 'c²', correct: 'C' },
-            { id: 'q6', topic: 'Data Analysis', difficulty: 'difficult', questionText: 'Set X has mean μ and standard deviation σ. Each element is transformed by y = 2x + 3. Compare the new standard deviation to 2σ.', quantityA: 'New standard deviation', quantityB: '2σ', correct: 'C' },
-            { id: 'q7', topic: 'Algebra', difficulty: 'difficult', questionText: 'If f(x) = x² - 4x + 7, compare f(2+h) and f(2-h) for h > 0.', quantityA: 'f(2+h)', quantityB: 'f(2-h)', correct: 'C' },
-            { id: 'q8', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'How does the number of factors of 72 compare to the number of factors of 60?', quantityA: 'Number of positive factors of 72', quantityB: 'Number of positive factors of 60', correct: 'C' },
-            { id: 'q9', topic: 'Geometry', difficulty: 'difficult', questionText: 'A cone and a cylinder have equal radii and equal volumes. Compare the height of the cone to the height of the cylinder.', quantityA: 'Height of the cone', quantityB: '3 × height of the cylinder', correct: 'C' },
-            { id: 'q10', topic: 'Algebra', difficulty: 'difficult', questionText: 'If |x-3| < 2 and |y-5| < 1, compare |x+y-8| to 3.', quantityA: '|x+y-8|', quantityB: '3', correct: 'B' },
-            { id: 'q11', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'A number is increased by 20% then decreased by 20%. Compare the final number to the original.', quantityA: 'Final number', quantityB: 'Original number', correct: 'B' },
-            { id: 'q12', topic: 'Geometry', difficulty: 'difficult', questionText: 'In triangle ABC, angle A = 80°, angle B = 60°. Compare side BC to side AC.', quantityA: 'Length of BC', quantityB: 'Length of AC', correct: 'A' },
-            { id: 'q13', topic: 'Data Analysis', difficulty: 'difficult', questionText: 'Two dice are rolled. Compare the probability of sum ≥ 10 to the probability of sum ≤ 4.', quantityA: 'P(sum ≥ 10)', quantityB: 'P(sum ≤ 4)', correct: 'C' },
-            { id: 'q14', topic: 'Algebra', difficulty: 'difficult', questionText: 'If 2ˣ = 8ʸ = 64, compare x to 2y.', quantityA: 'x', quantityB: '2y', correct: 'C' },
-            { id: 'q15', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'The GCD of two numbers is 6 and their LCM is 72. If one number is 24, compare the other number to 18.', quantityA: 'The other number', quantityB: '18', correct: 'C' },
-            { id: 'q16', topic: 'Geometry', difficulty: 'difficult', questionText: 'A sphere is inscribed in a cube. Compare the surface area of the sphere to half the surface area of the cube.', quantityA: 'Surface area of sphere', quantityB: 'Half surface area of cube', correct: 'A' },
-            { id: 'q17', topic: 'Algebra', difficulty: 'difficult', questionText: 'If log₂(x) = 3 and log₂(y) = 5, compare log₂(xy) to 8.', quantityA: 'log₂(xy)', quantityB: '8', correct: 'C' },
-            { id: 'q18', topic: 'Arithmetic', difficulty: 'difficult', questionText: 'For positive integers, compare the number of multiples of 3 less than 100 to the number of multiples of 4 less than 100.', quantityA: 'Multiples of 3 < 100', quantityB: 'Multiples of 4 < 100', correct: 'A' },
-            { id: 'q19', topic: 'Geometry', difficulty: 'difficult', questionText: 'A regular hexagon has side length s. Compare its area to the area of an equilateral triangle with side 2s.', quantityA: 'Area of regular hexagon', quantityB: 'Area of equilateral triangle (side 2s)', correct: 'A' },
+            { 
+                id: 'q0', topic: 'Algebra', difficulty: 'difficult', 
+                questionText: 'If x and y are integers and (x+y)² = 49 and (x-y)² = 1, which quantity is greater?', 
+                quantityA: 'x² + y²', quantityB: '25', correct: 'C',
+                explanation: 'Expand: (x+y)² = x²+2xy+y² = 49 and (x-y)² = x²-2xy+y² = 1. Add the equations: 2x²+2y² = 50 → x²+y² = 25. The quantities are equal.'
+            },
+            { 
+                id: 'q1', topic: 'Arithmetic', difficulty: 'difficult', 
+                questionText: 'n is a positive integer. Compare the remainder when 2ⁿ is divided by 3 to 1.', 
+                quantityA: 'Remainder when 2ⁿ is divided by 3', quantityB: '1', correct: 'D',
+                explanation: 'Powers of 2 mod 3: 2¹=2 (rem 2), 2²=4 (rem 1), 2³=8 (rem 2), 2⁴=16 (rem 1). Pattern alternates: odd n gives rem 2, even n gives rem 1. Without knowing n, cannot determine.'
+            },
+            { 
+                id: 'q2', topic: 'Geometry', difficulty: 'difficult', 
+                questionText: 'A circle and a square have the same perimeter P. Compare their areas.', 
+                quantityA: 'Area of the circle', quantityB: 'Area of the square', correct: 'A',
+                explanation: 'Circle: P=2πr → r=P/(2π), Area=π(P/(2π))²=P²/(4π). Square: P=4s → s=P/4, Area=(P/4)²=P²/16. Compare P²/(4π) vs P²/16 → 1/(4π) vs 1/16 → 4/π vs 1. Since π≈3.14, 4/3.14≈1.27 > 1. Circle area is larger.'
+            },
+            { 
+                id: 'q3', topic: 'Algebra', difficulty: 'difficult', 
+                questionText: 'If a, b, c are positive real numbers with a < b < c, compare (a+b+c)/3 to b.', 
+                quantityA: '(a+b+c)/3', quantityB: 'b', correct: 'D',
+                explanation: 'Example 1: a=1,b=2,c=9 → avg=4 > b=2. Example 2: a=1,b=8,c=9 → avg=6 < b=8. The average can be greater or less than b depending on values. Cannot determine.'
+            },
+            { 
+                id: 'q4', topic: 'Arithmetic', difficulty: 'difficult', 
+                questionText: 'The product of three distinct prime numbers is 1001. Compare the sum to 31.', 
+                quantityA: 'Sum of the three primes', quantityB: '31', correct: 'C',
+                explanation: '1001 = 7 × 11 × 13. Sum = 7+11+13 = 31. The quantities are equal.'
+            },
+            { 
+                id: 'q5', topic: 'Geometry', difficulty: 'difficult', 
+                questionText: 'A right triangle has legs a, b and hypotenuse c. Compare a²+b² to c².', 
+                quantityA: 'a² + b²', quantityB: 'c²', correct: 'C',
+                explanation: 'By the Pythagorean Theorem, a²+b² = c² for any right triangle. The quantities are always equal.'
+            },
+            { 
+                id: 'q6', topic: 'Data Analysis', difficulty: 'difficult', 
+                questionText: 'Set X has mean μ and SD σ. Transform: y = 2x + 3. Compare new SD to 2σ.', 
+                quantityA: 'New standard deviation', quantityB: '2σ', correct: 'C',
+                explanation: 'Adding a constant does not affect SD. Multiplying by 2 multiplies SD by |2|=2. New SD = 2σ. Equal.'
+            },
+            { 
+                id: 'q7', topic: 'Algebra', difficulty: 'difficult', 
+                questionText: 'f(x)=x²-4x+7. Compare f(2+h) and f(2-h) for h>0.', 
+                quantityA: 'f(2+h)', quantityB: 'f(2-h)', correct: 'C',
+                explanation: 'f(2+h)=(2+h)²-4(2+h)+7=4+4h+h²-8-4h+7=h²+3. f(2-h)=(2-h)²-4(2-h)+7=4-4h+h²-8+4h+7=h²+3. They are equal.'
+            },
+            { 
+                id: 'q8', topic: 'Arithmetic', difficulty: 'difficult', 
+                questionText: 'Compare the number of positive factors of 72 to the number of positive factors of 60.', 
+                quantityA: 'Factors of 72', quantityB: 'Factors of 60', correct: 'C',
+                explanation: '72=2³×3² → (3+1)(2+1)=12 factors. 60=2²×3×5 → (2+1)(1+1)(1+1)=12 factors. Equal.'
+            },
+            { 
+                id: 'q9', topic: 'Geometry', difficulty: 'difficult', 
+                questionText: 'Cone and cylinder have equal radii and volumes. Compare cone height to 3×cylinder height.', 
+                quantityA: 'Height of cone', quantityB: '3 × height of cylinder', correct: 'C',
+                explanation: 'V_cone=(1/3)πr²h_c, V_cyl=πr²H. Equal: (1/3)πr²h_c=πr²H → h_c=3H. Equal.'
+            },
+            { 
+                id: 'q10', topic: 'Algebra', difficulty: 'difficult', 
+                questionText: 'If |x-3|<2 and |y-5|<1, compare |x+y-8| to 3.', 
+                quantityA: '|x+y-8|', quantityB: '3', correct: 'B',
+                explanation: '|x-3|<2 → 1<x<5. |y-5|<1 → 4<y<6. x+y is between 5 and 11. |x+y-8| maximum when x+y=5 gives 3, or x+y=11 gives 3, but strict inequality means |x+y-8|<3. B is greater.'
+            },
+            { 
+                id: 'q11', topic: 'Arithmetic', difficulty: 'difficult', 
+                questionText: 'A number increased by 20% then decreased by 20%. Compare final to original.', 
+                quantityA: 'Final number', quantityB: 'Original number', correct: 'B',
+                explanation: 'Let original=100. +20% → 120. -20% → 120×0.8=96. Final (96) < Original (100). B is greater.'
+            },
+            { 
+                id: 'q12', topic: 'Geometry', difficulty: 'difficult', 
+                questionText: 'Triangle ABC: ∠A=80°, ∠B=60°. Compare side BC to side AC.', 
+                quantityA: 'Length of BC', quantityB: 'Length of AC', correct: 'A',
+                explanation: '∠C=180-80-60=40°. BC is opposite ∠A (80°), AC is opposite ∠B (60°). Larger angle → larger side. BC > AC.'
+            },
+            { 
+                id: 'q13', topic: 'Data Analysis', difficulty: 'difficult', 
+                questionText: 'Two dice. Compare P(sum≥10) to P(sum≤4).', 
+                quantityA: 'P(sum ≥ 10)', quantityB: 'P(sum ≤ 4)', correct: 'C',
+                explanation: 'Sum≥10: (4,6)(5,5)(6,4)(5,6)(6,5)(6,6)=6 outcomes. Sum≤4: (1,1)(1,2)(2,1)(1,3)(2,2)(3,1)=6 outcomes. Both=6/36=1/6. Equal.'
+            },
+            { 
+                id: 'q14', topic: 'Algebra', difficulty: 'difficult', 
+                questionText: 'If 2ˣ=8ʸ=64, compare x to 2y.', 
+                quantityA: 'x', quantityB: '2y', correct: 'C',
+                explanation: '2ˣ=64=2⁶ → x=6. 8ʸ=64 → (2³)ʸ=2⁶ → 3y=6 → y=2. 2y=4. Wait, x=6, 2y=4. A>B. Actually: 8ʸ=(2³)ʸ=2³ʸ=64=2⁶ → 3y=6 → y=2. 2y=4. x=6 > 4. Correct answer should be A. Let me fix: correct: A.'
+            },
+            { 
+                id: 'q15', topic: 'Arithmetic', difficulty: 'difficult', 
+                questionText: 'GCD=6, LCM=72. One number=24. Compare other number to 18.', 
+                quantityA: 'The other number', quantityB: '18', correct: 'C',
+                explanation: 'Product=GCD×LCM=6×72=432. Other=432/24=18. Equal.'
+            },
+            { 
+                id: 'q16', topic: 'Geometry', difficulty: 'difficult', 
+                questionText: 'Sphere inscribed in cube. Compare sphere SA to half cube SA.', 
+                quantityA: 'Surface area of sphere', quantityB: 'Half surface area of cube', correct: 'A',
+                explanation: 'Cube side=s. Sphere radius=s/2. Sphere SA=4π(s/2)²=πs². Cube SA=6s², half=3s². πs² vs 3s² → π≈3.14 > 3. A is greater.'
+            },
+            { 
+                id: 'q17', topic: 'Algebra', difficulty: 'difficult', 
+                questionText: 'log₂(x)=3, log₂(y)=5. Compare log₂(xy) to 8.', 
+                quantityA: 'log₂(xy)', quantityB: '8', correct: 'C',
+                explanation: 'log₂(xy)=log₂(x)+log₂(y)=3+5=8. Equal.'
+            },
+            { 
+                id: 'q18', topic: 'Arithmetic', difficulty: 'difficult', 
+                questionText: 'Compare multiples of 3 < 100 to multiples of 4 < 100.', 
+                quantityA: 'Multiples of 3 < 100', quantityB: 'Multiples of 4 < 100', correct: 'A',
+                explanation: 'Multiples of 3: 99/3=33 numbers. Multiples of 4: 96/4=24 numbers. 33 > 24. A is greater.'
+            },
+            { 
+                id: 'q19', topic: 'Geometry', difficulty: 'difficult', 
+                questionText: 'Regular hexagon side s vs equilateral triangle side 2s. Compare areas.', 
+                quantityA: 'Area of regular hexagon', quantityB: 'Area of equilateral triangle (side 2s)', correct: 'A',
+                explanation: 'Hexagon=6×(√3/4)s²=(3√3/2)s²≈2.598s². Triangle=(√3/4)(2s)²=√3s²≈1.732s². Hexagon is larger.'
+            },
             // ADVANCED (Q21-Q40)
-            { id: 'q20', topic: 'Algebra', difficulty: 'advanced', questionText: 'If x⁴ - 5x² + 4 = 0, compare the sum of all real solutions to 0.', quantityA: 'Sum of all real solutions', quantityB: '0', correct: 'C' },
-            { id: 'q21', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'Let N = 2¹⁰⁰ - 2⁹⁹. Compare N to 2⁹⁹.', quantityA: 'N', quantityB: '2⁹⁹', correct: 'C' },
-            { id: 'q22', topic: 'Geometry', difficulty: 'advanced', questionText: 'In a circle, a central angle of 60° subtends an arc. Compare the chord length to the radius.', quantityA: 'Length of the chord', quantityB: 'Radius of the circle', correct: 'C' },
-            { id: 'q23', topic: 'Algebra', difficulty: 'advanced', questionText: 'If a, b are positive real numbers with a + b = 1, compare a² + b² to 1/2.', quantityA: 'a² + b²', quantityB: '1/2', correct: 'D' },
-            { id: 'q24', topic: 'Data Analysis', difficulty: 'advanced', questionText: 'In a normal distribution, compare the percentage of data within 1 standard deviation of the mean to 68%.', quantityA: 'Percentage within 1 SD of mean', quantityB: '68%', correct: 'C' },
-            { id: 'q25', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'If n!/(n-2)! = 30, compare n to 6.', quantityA: 'n', quantityB: '6', correct: 'C' },
-            { id: 'q26', topic: 'Geometry', difficulty: 'advanced', questionText: 'A tetrahedron has all edges of length a. Compare its volume to a³/(6√2).', quantityA: 'Volume of tetrahedron', quantityB: 'a³/(6√2)', correct: 'C' },
-            { id: 'q27', topic: 'Algebra', difficulty: 'advanced', questionText: 'If z is a complex number with |z| = 1, compare |z+1| to |z-1|.', quantityA: '|z+1|', quantityB: '|z-1|', correct: 'D' },
-            { id: 'q28', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'The sum of the first n positive integers is 210. Compare n to 20.', quantityA: 'n', quantityB: '20', correct: 'C' },
-            { id: 'q29', topic: 'Geometry', difficulty: 'advanced', questionText: 'A parabola y = ax² + bx + c has vertex at (2, -3). Compare a to 0.', quantityA: 'a', quantityB: '0', correct: 'D' },
-            { id: 'q30', topic: 'Algebra', difficulty: 'advanced', questionText: 'If xʸ = yˣ and x ≠ y (x,y > 0), compare x to y.', quantityA: 'x', quantityB: 'y', correct: 'D' },
-            { id: 'q31', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'Consider the sequence: 1, 1, 2, 3, 5, 8, 13,... Compare the 15th term to 600.', quantityA: '15th term', quantityB: '600', correct: 'A' },
-            { id: 'q32', topic: 'Geometry', difficulty: 'advanced', questionText: 'In 3D, compare the number of faces of a dodecahedron to the number of vertices of an icosahedron.', quantityA: 'Faces of dodecahedron', quantityB: 'Vertices of icosahedron', correct: 'C' },
-            { id: 'q33', topic: 'Data Analysis', difficulty: 'advanced', questionText: 'A fair coin is tossed until heads appears. Compare the expected number of tosses to 2.', quantityA: 'Expected number of tosses', quantityB: '2', correct: 'C' },
-            { id: 'q34', topic: 'Algebra', difficulty: 'advanced', questionText: 'If ∫₀¹ x² dx is compared to ∫₀¹ x³ dx, which is greater?', quantityA: '∫₀¹ x² dx', quantityB: '∫₀¹ x³ dx', correct: 'A' },
-            { id: 'q35', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'The infinite series 1 + 1/2 + 1/4 + 1/8 + ... sums to S. Compare S to 2.', quantityA: 'Sum S', quantityB: '2', correct: 'C' },
-            { id: 'q36', topic: 'Geometry', difficulty: 'advanced', questionText: 'A rectangle has perimeter P and area A. Compare P²/16 to A.', quantityA: 'P²/16', quantityB: 'A', correct: 'D' },
-            { id: 'q37', topic: 'Algebra', difficulty: 'advanced', questionText: 'If det([[a,b],[c,d]]) = 5, compare det([[2a,2b],[c,d]]) to 10.', quantityA: 'det([[2a,2b],[c,d]])', quantityB: '10', correct: 'C' },
-            { id: 'q38', topic: 'Arithmetic', difficulty: 'advanced', questionText: 'For how many integers n (1 ≤ n ≤ 100) is n² + n + 41 prime? Compare this count to 80.', quantityA: 'Count of n giving prime', quantityB: '80', correct: 'B' },
-            { id: 'q39', topic: 'Geometry', difficulty: 'advanced', questionText: 'A curve has parametric equations x = cos(t), y = sin(2t). Compare the area enclosed to π.', quantityA: 'Area enclosed by the curve', quantityB: 'π', correct: 'B' }
+            { 
+                id: 'q20', topic: 'Algebra', difficulty: 'advanced', 
+                questionText: 'x⁴-5x²+4=0. Compare sum of real solutions to 0.', 
+                quantityA: 'Sum of all real solutions', quantityB: '0', correct: 'C',
+                explanation: 'Let u=x²: u²-5u+4=0 → (u-1)(u-4)=0 → u=1 or u=4. x=±1,±2. Sum=1+(-1)+2+(-2)=0. Equal.'
+            },
+            { 
+                id: 'q21', topic: 'Arithmetic', difficulty: 'advanced', 
+                questionText: 'N=2¹⁰⁰-2⁹⁹. Compare N to 2⁹⁹.', 
+                quantityA: 'N', quantityB: '2⁹⁹', correct: 'C',
+                explanation: '2¹⁰⁰=2×2⁹⁹. N=2×2⁹⁹-2⁹⁹=2⁹⁹(2-1)=2⁹⁹. Equal.'
+            },
+            { 
+                id: 'q22', topic: 'Geometry', difficulty: 'advanced', 
+                questionText: 'Circle: central angle 60° subtends chord. Compare chord to radius.', 
+                quantityA: 'Length of chord', quantityB: 'Radius', correct: 'C',
+                explanation: 'Chord=2r×sin(θ/2)=2r×sin(30°)=2r×0.5=r. Equal to radius.'
+            },
+            { 
+                id: 'q23', topic: 'Algebra', difficulty: 'advanced', 
+                questionText: 'a,b>0, a+b=1. Compare a²+b² to 1/2.', 
+                quantityA: 'a² + b²', quantityB: '1/2', correct: 'D',
+                explanation: 'a²+b²=(a+b)²-2ab=1-2ab. By AM-GM, ab≤1/4, so a²+b²≥1/2 when a=b=0.5. But a=0.1,b=0.9 gives a²+b²=0.82>0.5. a=0.5,b=0.5 gives 0.5. Can be ≥ or = but never < 0.5. Actually minimum is 0.5, so A≥B always? Wait: (a²+b²)min=0.5, so A≥B. Correct: A. Let me revise: correct: A.'
+            },
+            { 
+                id: 'q24', topic: 'Data Analysis', difficulty: 'advanced', 
+                questionText: 'Normal distribution. Compare % within 1 SD to 68%.', 
+                quantityA: '% within 1 SD of mean', quantityB: '68%', correct: 'C',
+                explanation: 'For any normal distribution, approximately 68.27% of data falls within 1 SD. ≈68%. Equal.'
+            },
+            { 
+                id: 'q25', topic: 'Arithmetic', difficulty: 'advanced', 
+                questionText: 'n!/(n-2)!=30. Compare n to 6.', 
+                quantityA: 'n', quantityB: '6', correct: 'C',
+                explanation: 'n!/(n-2)!=n(n-1)=30 → n²-n-30=0 → (n-6)(n+5)=0 → n=6. Equal.'
+            },
+            { 
+                id: 'q26', topic: 'Geometry', difficulty: 'advanced', 
+                questionText: 'Tetrahedron all edges=a. Compare volume to a³/(6√2).', 
+                quantityA: 'Volume of tetrahedron', quantityB: 'a³/(6√2)', correct: 'C',
+                explanation: 'Regular tetrahedron volume = a³/(6√2). Equal.'
+            },
+            { 
+                id: 'q27', topic: 'Algebra', difficulty: 'advanced', 
+                questionText: '|z|=1 (complex). Compare |z+1| to |z-1|.', 
+                quantityA: '|z+1|', quantityB: '|z-1|', correct: 'D',
+                explanation: 'z=1: |2|=2, |0|=0, A>B. z=-1: |0|=0, |-2|=2, A<B. Cannot determine.'
+            },
+            { 
+                id: 'q28', topic: 'Arithmetic', difficulty: 'advanced', 
+                questionText: 'Sum of first n positive integers=210. Compare n to 20.', 
+                quantityA: 'n', quantityB: '20', correct: 'C',
+                explanation: 'n(n+1)/2=210 → n(n+1)=420 → n²+n-420=0 → (n-20)(n+21)=0 → n=20. Equal.'
+            },
+            { 
+                id: 'q29', topic: 'Geometry', difficulty: 'advanced', 
+                questionText: 'Parabola y=ax²+bx+c, vertex (2,-3). Compare a to 0.', 
+                quantityA: 'a', quantityB: '0', correct: 'D',
+                explanation: 'Vertex (h,k): h=-b/(2a)=2. a can be positive (opens up) or negative (opens down). Cannot determine.'
+            },
+            { 
+                id: 'q30', topic: 'Algebra', difficulty: 'advanced', 
+                questionText: 'xʸ=yˣ, x≠y, x,y>0. Compare x to y.', 
+                quantityA: 'x', quantityB: 'y', correct: 'D',
+                explanation: 'Example: 2⁴=4² → 16=16. x=2,y=4: A<B. Also x=4,y=2: A>B. Cannot determine.'
+            },
+            { 
+                id: 'q31', topic: 'Arithmetic', difficulty: 'advanced', 
+                questionText: 'Fibonacci: 1,1,2,3,5,8,13,... Compare 15th term to 600.', 
+                quantityA: '15th term', quantityB: '600', correct: 'A',
+                explanation: 'F(1)=1,F(2)=1,F(3)=2,F(4)=3,F(5)=5,F(6)=8,F(7)=13,F(8)=21,F(9)=34,F(10)=55,F(11)=89,F(12)=144,F(13)=233,F(14)=377,F(15)=610. 610>600. A is greater.'
+            },
+            { 
+                id: 'q32', topic: 'Geometry', difficulty: 'advanced', 
+                questionText: 'Compare faces of dodecahedron to vertices of icosahedron.', 
+                quantityA: 'Faces of dodecahedron', quantityB: 'Vertices of icosahedron', correct: 'C',
+                explanation: 'Dodecahedron: 12 faces. Icosahedron: 12 vertices. Equal (dual polyhedra).'
+            },
+            { 
+                id: 'q33', topic: 'Data Analysis', difficulty: 'advanced', 
+                questionText: 'Coin tossed until heads. Compare expected tosses to 2.', 
+                quantityA: 'Expected number of tosses', quantityB: '2', correct: 'C',
+                explanation: 'Geometric distribution: E=1/p=1/0.5=2. Equal.'
+            },
+            { 
+                id: 'q34', topic: 'Algebra', difficulty: 'advanced', 
+                questionText: 'Compare ∫₀¹ x² dx to ∫₀¹ x³ dx.', 
+                quantityA: '∫₀¹ x² dx', quantityB: '∫₀¹ x³ dx', correct: 'A',
+                explanation: '∫₀¹x²dx=[x³/3]₀¹=1/3. ∫₀¹x³dx=[x⁴/4]₀¹=1/4. 1/3 > 1/4. A is greater.'
+            },
+            { 
+                id: 'q35', topic: 'Arithmetic', difficulty: 'advanced', 
+                questionText: 'Series: 1+1/2+1/4+1/8+...=S. Compare S to 2.', 
+                quantityA: 'Sum S', quantityB: '2', correct: 'C',
+                explanation: 'Geometric series: S=a/(1-r)=1/(1-1/2)=2. Equal.'
+            },
+            { 
+                id: 'q36', topic: 'Geometry', difficulty: 'advanced', 
+                questionText: 'Rectangle perimeter P, area A. Compare P²/16 to A.', 
+                quantityA: 'P²/16', quantityB: 'A', correct: 'D',
+                explanation: 'For square (L=W): P²/16=(4L)²/16=L²=A, equal. For non-square: P²/16 > A (by AM-GM: (L+W)/2 ≥ √(LW)). Can be equal or greater. Actually P²/16 ≥ A always, so A≥B? Wait: P²/16=(L+W)²/4 ≥ LW=A. So P²/16 ≥ A. A≥B always? For rectangle, P²/16 = ((2L+2W)/4)² = ((L+W)/2)² ≥ LW = A. So Quantity A ≥ Quantity B always. Correct: A.'
+            },
+            { 
+                id: 'q37', topic: 'Algebra', difficulty: 'advanced', 
+                questionText: 'det([[a,b],[c,d]])=5. Compare det([[2a,2b],[c,d]]) to 10.', 
+                quantityA: 'det([[2a,2b],[c,d]])', quantityB: '10', correct: 'C',
+                explanation: 'det([[2a,2b],[c,d]])=2a×d-2b×c=2(ad-bc)=2×5=10. Equal.'
+            },
+            { 
+                id: 'q38', topic: 'Arithmetic', difficulty: 'advanced', 
+                questionText: 'n²+n+41 prime for n=1 to 100. Compare count to 80.', 
+                quantityA: 'Count of n giving prime', quantityB: '80', correct: 'B',
+                explanation: 'Euler\'s polynomial produces primes for n=0 to 39 (40 values). For n=40: 40²+40+41=1681=41² (not prime). For n=41: divisible by 41. Only about 40 values are prime. 40 < 80. B is greater.'
+            },
+            { 
+                id: 'q39', topic: 'Geometry', difficulty: 'advanced', 
+                questionText: 'Curve: x=cos(t), y=sin(2t). Compare area enclosed to π.', 
+                quantityA: 'Area enclosed', quantityB: 'π', correct: 'B',
+                explanation: 'This is a Lissajous figure (figure-8). Area = 0 (self-intersecting, net area 0). Actually the curve traces a figure-8 with zero enclosed area. 0 < π. B is greater.'
+            }
         ];
+
+        // Update question 14 correct answer
+        questions[14].correct = 'A';
+        questions[14].explanation = '2ˣ=64=2⁶ → x=6. 8ʸ=(2³)ʸ=2³ʸ=64=2⁶ → 3y=6 → y=2. 2y=4. x=6 > 4. A is greater.';
+        
+        // Update question 23 correct answer
+        questions[23].correct = 'A';
+        questions[23].explanation = 'a²+b²=(a+b)²-2ab=1-2ab. By AM-GM, ab≤1/4, so a²+b²=1-2ab≥1-2(1/4)=1/2. Minimum is 1/2 (when a=b=0.5). Always ≥1/2. A is greater or equal, so A is greater.';
+        
+        // Update question 36 correct answer
+        questions[36].correct = 'A';
+        questions[36].explanation = 'P²/16=((L+W)/2)² ≥ (√(LW))²=LW=A by AM-GM. P²/16 ≥ A always, with equality only for squares. Quantity A ≥ Quantity B.';
 
         function showToast(message, type = '') {
             const container = document.getElementById('toastContainer');
@@ -836,40 +1139,31 @@
                 <span class="badge badge-${q.difficulty}">${q.difficulty}</span>
             `;
             document.getElementById('questionText').textContent = q.questionText;
-
-            const contentDiv = document.getElementById('questionContent');
-            contentDiv.innerHTML = `
+            document.getElementById('questionContent').innerHTML = `
                 <div class="qc-box">
                     <div class="qc-item"><div class="qc-label">Quantity A</div>${q.quantityA}</div>
                     <div class="qc-item"><div class="qc-label">Quantity B</div>${q.quantityB}</div>
                 </div>
                 <ul class="options-list" id="optionsList">
-                    <li data-value="A" onclick="selectOption('${q.id}', 'A')">
-                        <span class="radio-indicator"></span> A) Quantity A is greater
-                    </li>
-                    <li data-value="B" onclick="selectOption('${q.id}', 'B')">
-                        <span class="radio-indicator"></span> B) Quantity B is greater
-                    </li>
-                    <li data-value="C" onclick="selectOption('${q.id}', 'C')">
-                        <span class="radio-indicator"></span> C) The two quantities are equal
-                    </li>
-                    <li data-value="D" onclick="selectOption('${q.id}', 'D')">
-                        <span class="radio-indicator"></span> D) Cannot be determined
-                    </li>
+                    <li data-value="A" onclick="selectOption('${q.id}', 'A')"><span class="radio-indicator"></span> A) Quantity A is greater</li>
+                    <li data-value="B" onclick="selectOption('${q.id}', 'B')"><span class="radio-indicator"></span> B) Quantity B is greater</li>
+                    <li data-value="C" onclick="selectOption('${q.id}', 'C')"><span class="radio-indicator"></span> C) The two quantities are equal</li>
+                    <li data-value="D" onclick="selectOption('${q.id}', 'D')"><span class="radio-indicator"></span> D) Cannot be determined</li>
                 </ul>`;
-
             const saved = APP_STATE.answers[q.id];
             if (saved) {
-                const allLis = document.querySelectorAll('#optionsList li');
-                allLis.forEach(li => { if (li.dataset.value === saved) li.classList.add('selected'); });
+                document.querySelectorAll('#optionsList li').forEach(li => {
+                    if (li.dataset.value === saved) li.classList.add('selected');
+                });
             }
         }
 
         function selectOption(questionId, value) {
             APP_STATE.answers[questionId] = value;
-            const allLis = document.querySelectorAll('#optionsList li');
-            allLis.forEach(li => li.classList.remove('selected'));
-            allLis.forEach(li => { if (li.dataset.value === value) li.classList.add('selected'); });
+            document.querySelectorAll('#optionsList li').forEach(li => {
+                li.classList.remove('selected');
+                if (li.dataset.value === value) li.classList.add('selected');
+            });
             renderQuestionGrid();
         }
 
@@ -902,53 +1196,92 @@ Host: SKILLIGENT HANDS TUTORS`;
             document.getElementById('resultsScreen').classList.remove('hidden');
 
             let correct = 0, wrong = 0, unanswered = 0;
-            questions.forEach(q => {
+            const details = [];
+            questions.forEach((q, i) => {
                 const ans = APP_STATE.answers[q.id];
-                if (!ans) unanswered++;
-                else if (ans === q.correct) correct++;
-                else wrong++;
+                let status;
+                if (!ans) { unanswered++; status = 'unanswered'; }
+                else if (ans === q.correct) { correct++; status = 'correct'; }
+                else { wrong++; status = 'wrong'; }
+                details.push({
+                    number: i + 1,
+                    question: q,
+                    userAnswer: ans || '(unanswered)',
+                    status: status
+                });
             });
 
             const percent = Math.round((correct / questions.length) * 100);
             APP_STATE._results = { correct, wrong, unanswered, total: questions.length, percent };
+            APP_STATE._details = details;
 
-            // Build WhatsApp message
-            const waMessage = encodeURIComponent(generateResultsText());
-            const waLink = `https://wa.me/${APP_STATE.whatsappNumber}?text=${waMessage}`;
-            document.getElementById('whatsappLink').href = waLink;
-
-            document.getElementById('resultsContent').innerHTML = `
+            // Summary
+            document.getElementById('resultsSummary').innerHTML = `
                 <div class="results-summary">
                     <div class="result-card"><div class="big-number">${correct}/40</div><div class="label">Correct</div></div>
                     <div class="result-card"><div class="big-number">${percent}%</div><div class="label">Score</div></div>
                     <div class="result-card"><div class="big-number">${wrong}</div><div class="label">Wrong</div></div>
                     <div class="result-card"><div class="big-number">${unanswered}</div><div class="label">Unanswered</div></div>
                 </div>
-                <p style="text-align:center;font-weight:600;color:var(--accent);">
-                    🏆 SKILLIGENT HANDS TUTORS
-                </p>
-                <p style="text-align:center;color:var(--text-light);">
-                    📱 Results ready for WhatsApp: <strong>+234 803 940 2346</strong><br>
-                    📧 Also sending to: <strong>${APP_STATE.examinerEmail}</strong>
-                </p>`;
+                <p style="text-align:center;font-weight:600;color:var(--accent);">🏆 SKILLIGENT HANDS TUTORS</p>`;
+
+            // Review section
+            let reviewHTML = '';
+            details.forEach(d => {
+                const q = d.question;
+                const statusClass = d.status === 'correct' ? 'correct-review' : d.status === 'wrong' ? 'wrong-review' : 'unanswered-review';
+                const statusLabel = d.status === 'correct' ? '✅ Correct' : d.status === 'wrong' ? '❌ Wrong' : '⬜ Unanswered';
+                const statusLabelClass = d.status;
+                const choiceLabels = { 'A': 'A) Quantity A is greater', 'B': 'B) Quantity B is greater', 'C': 'C) The two quantities are equal', 'D': 'D) Cannot be determined' };
+                
+                reviewHTML += `
+                    <div class="review-item ${statusClass}">
+                        <div class="review-header">
+                            <strong>Question ${d.number}</strong>
+                            <span class="badge badge-topic">${q.topic}</span>
+                            <span class="badge badge-${q.difficulty}">${q.difficulty}</span>
+                            <span class="review-status ${statusLabelClass}">${statusLabel}</span>
+                        </div>
+                        <div class="review-details">
+                            <p><strong>${q.questionText}</strong></p>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;padding:10px;background:#f9f8f5;border-radius:8px;">
+                                <div><strong>Quantity A:</strong> ${q.quantityA}</div>
+                                <div><strong>Quantity B:</strong> ${q.quantityB}</div>
+                            </div>
+                            <div class="answer-row">
+                                <span><strong>Your Answer:</strong> ${d.userAnswer === '(unanswered)' ? d.userAnswer : choiceLabels[d.userAnswer] || d.userAnswer}</span>
+                                <span><strong>Correct Answer:</strong> ${choiceLabels[q.correct]} (${q.correct})</span>
+                            </div>
+                            <div class="explanation-box">
+                                <strong>💡 Explanation:</strong><br>${q.explanation}
+                            </div>
+                        </div>
+                    </div>`;
+            });
+            document.getElementById('reviewContent').innerHTML = reviewHTML;
+
+            // WhatsApp link
+            const waMessage = encodeURIComponent(generateResultsText());
+            document.getElementById('whatsappLink').href = `https://wa.me/${APP_STATE.whatsappNumber}?text=${waMessage}`;
             document.getElementById('statusMessage').textContent = '';
 
-            // Auto-open WhatsApp after 1 second
+            // Scroll to review
             setTimeout(() => {
-                sendToWhatsApp();
-            }, 1000);
+                document.getElementById('reviewSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 500);
 
-            showToast('📊 Results ready! Opening WhatsApp...', 'success');
+            // Auto-open WhatsApp
+            setTimeout(() => { sendToWhatsApp(); }, 1500);
+            showToast('📊 Results ready with explanations!', 'success');
         }
 
         function sendToWhatsApp() {
             const r = APP_STATE._results;
             if (!r) return;
             const message = encodeURIComponent(generateResultsText());
-            const waLink = `https://wa.me/${APP_STATE.whatsappNumber}?text=${message}`;
-            window.open(waLink, '_blank');
-            document.getElementById('statusMessage').textContent = '✅ WhatsApp opened. Please send the message.';
-            showToast('📱 WhatsApp opened with results!', 'whatsapp');
+            window.open(`https://wa.me/${APP_STATE.whatsappNumber}?text=${message}`, '_blank');
+            document.getElementById('statusMessage').textContent = '✅ WhatsApp opened. Send the message to submit results.';
+            showToast('📱 WhatsApp opened!', 'whatsapp');
         }
 
         function sendResultsEmail() {
@@ -958,13 +1291,12 @@ Host: SKILLIGENT HANDS TUTORS`;
             const body = encodeURIComponent(generateResultsText());
             window.open(`mailto:${APP_STATE.examinerEmail}?subject=${subject}&body=${body}`, '_blank');
             document.getElementById('statusMessage').textContent = '✅ Email client opened.';
-            showToast('📧 Email client opened!', 'success');
+            showToast('📧 Email opened!', 'success');
         }
 
         function copyResults() {
-            const text = generateResultsText();
-            navigator.clipboard.writeText(text).then(() => {
-                document.getElementById('statusMessage').textContent = '✅ Results copied to clipboard!';
+            navigator.clipboard.writeText(generateResultsText()).then(() => {
+                document.getElementById('statusMessage').textContent = '✅ Results copied!';
                 showToast('📋 Copied!', 'success');
             });
         }
@@ -976,11 +1308,11 @@ Host: SKILLIGENT HANDS TUTORS`;
             APP_STATE.answers = {};
             APP_STATE.flagged = {};
             APP_STATE._results = null;
+            APP_STATE._details = [];
             document.getElementById('examScreen').classList.add('hidden');
             document.getElementById('resultsScreen').classList.add('hidden');
             document.getElementById('instructionsScreen').classList.add('hidden');
             document.getElementById('loginScreen').classList.remove('hidden');
-            document.getElementById('timerDisplay').classList.remove('warning', 'danger');
             document.getElementById('timerDisplay').textContent = '70:00';
         }
 
@@ -989,17 +1321,18 @@ Host: SKILLIGENT HANDS TUTORS`;
             if (document.getElementById('examScreen').classList.contains('hidden')) return;
             if (e.key === 'ArrowLeft') { e.preventDefault(); navigateQuestion(-1); }
             if (e.key === 'ArrowRight') { e.preventDefault(); navigateQuestion(1); }
-            if (e.key === 'a' || e.key === 'A') selectOption(questions[APP_STATE.currentQuestionIndex].id, 'A');
-            if (e.key === 'b' || e.key === 'B') selectOption(questions[APP_STATE.currentQuestionIndex].id, 'B');
-            if (e.key === 'c' || e.key === 'C') selectOption(questions[APP_STATE.currentQuestionIndex].id, 'C');
-            if (e.key === 'd' || e.key === 'D') selectOption(questions[APP_STATE.currentQuestionIndex].id, 'D');
+            const q = questions[APP_STATE.currentQuestionIndex];
+            if (e.key === 'a' || e.key === 'A') selectOption(q.id, 'A');
+            if (e.key === 'b' || e.key === 'B') selectOption(q.id, 'B');
+            if (e.key === 'c' || e.key === 'C') selectOption(q.id, 'C');
+            if (e.key === 'd' || e.key === 'D') selectOption(q.id, 'D');
         });
 
         // Init
         document.getElementById('examinerEmail').value = 'iscoewe2014@gmail.com';
         console.log('✅ GRE QC Advanced Mock - SKILLIGENT HANDS TUTORS');
+        console.log('📝 40 Questions with Detailed Explanations');
         console.log('📱 WhatsApp: +234 803 940 2346');
-        console.log('📧 Email: iscoewe2014@gmail.com');
     </script>
 </body>
 </html>
